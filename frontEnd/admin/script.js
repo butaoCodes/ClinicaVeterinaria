@@ -72,6 +72,38 @@ async function buscarCliente(){
     })
 }
 
+async function buscarClientePorId(){
+    const id = document.getElementById('searchId').value;
+
+    if(String(id).trim() === ''){
+        alert('Digite o ID do cliente para buscar');
+        return;
+    }
+
+    const resposta = await fetch(`http://localhost:3023/clientes/${encodeURIComponent(id)}`);
+    const lista = document.getElementById('lista');
+    lista.innerHTML = '';
+
+    if (!resposta.ok) {
+        const erro = await resposta.json().catch(() => ({ erro: 'Cliente não encontrado' }));
+        lista.innerHTML = `<li>${erro.erro || 'Cliente não encontrado'}</li>`;
+        return;
+    }
+
+    const cliente = await resposta.json();
+
+    if (!cliente || !cliente.id) {
+        lista.innerHTML = '<li>Nenhum cliente encontrado</li>';
+        return;
+    }
+
+    lista.innerHTML = `
+    <li>
+        ${cliente.id} - ${cliente.nome}
+    </li>
+    `;
+}
+
 async function editarCliente(id , nomeAtual) {
     const novoNome = prompt('Digite um novo nome: ', nomeAtual);
     
