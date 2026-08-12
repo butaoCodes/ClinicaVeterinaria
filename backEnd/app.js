@@ -1,4 +1,3 @@
-//Importa o framework express
 const express = require('express');
 const server = express();
 const path = require('path');
@@ -6,23 +5,6 @@ const connection = require('./db')
 const cors = require('cors')
 server.use(express.json());
 server.use(cors());
-
-// Log simples de todas as requisições (debug)
-server.use((req, res, next) => {
-    console.log('REQ', req.method, req.path);
-    return next();
-});
-
-// Serve arquivos estáticos do front-end
-server.use(express.static(path.join(__dirname, '..', 'frontEnd')));
-// Também permite servir com o prefixo /frontEnd (para links absolutos antigos)
-server.use('/frontEnd', express.static(path.join(__dirname, '..', 'frontEnd')));
-console.log('Static path:', path.join(__dirname, '..', 'frontEnd'));
-
-// Endpoint de debug para enviar um arquivo específico e confirmar acessibilidade
-server.get('/debug-login', (req, res) => {
-    return res.sendFile(path.join(__dirname, '..', 'frontEnd', 'deslogado', 'login.html'));
-});
 
 server.get('/clientes', (req, res) => {
     const sql = 'select * from clientes';
