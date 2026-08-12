@@ -5,18 +5,18 @@ async function listarclientes() {
     const lista = document.getElementById('lista');
     lista.innerHTML =''
 
-    clientes.forEach(curso =>{
+    clientes.forEach((cliente, index) =>{
         lista.innerHTML += `
         <li>
-            ${curso.id} - ${curso.nome}
-            <button onclick="editarCurso(${curso.id}, '${curso.nome}')">Editar</button>
-            <button onclick="excluirCurso(${curso.id})">Excluir</button>
+            ${index + 1} - ${cliente.nome}
+            <button onclick="editarCliente(${cliente.id}, '${cliente.nome}')">Editar</button>
+            <button onclick="excluirCliente(${cliente.id})">Excluir</button>
         </li>
         `
     })
 }
 
-async function cadastrarCurso(){
+async function cadastrarCliente(){
     const nome = document.getElementById('nome').value
 
     if(nome == ''){
@@ -24,10 +24,10 @@ async function cadastrarCurso(){
         return;
     }
     
-    const resposta = fetch('http://localhost:3023/clientes', {
+    const resposta = await fetch('http://localhost:3023/clientes', {
         method: 'POST',
-        headers: {'Content-Type': 'application'},
-        body:JSON.stringify({nome})
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({nome})
     })
 
     const dados = await resposta.json();
@@ -38,7 +38,7 @@ async function cadastrarCurso(){
 
 }
 
-async function editarCurso(id , nomeAtual) {
+async function editarCliente(id , nomeAtual) {
     const novoNome = prompt('Digite um novo nome: ', nomeAtual);
     
     if(!novoNome) return;
@@ -51,7 +51,7 @@ async function editarCurso(id , nomeAtual) {
     listarclientes();
 }
 
-async function excluirCurso(id){
+async function excluirCliente(id){
     if(!confirm('Deseja realmente excluir esse cliente?')) return;
 
     await fetch(`http://localhost:3023/clientes/${id}`,{
