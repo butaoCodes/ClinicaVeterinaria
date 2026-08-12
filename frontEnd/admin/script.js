@@ -20,7 +20,7 @@ async function cadastrarCurso(){
     const nome = document.getElementById('nome').value
 
     if(nome == ''){
-        alert("DIGITE O NOME DO CURSO")
+        alert("DIGITE O NOME DO CLIENTE")
         return;
     }
     
@@ -52,7 +52,7 @@ async function editarCurso(id , nomeAtual) {
 }
 
 async function excluirCurso(id){
-    if(!confirm('Deseja realmente excluir esse curso?')) return;
+    if(!confirm('Deseja realmente excluir esse cliente?')) return;
 
     await fetch(`http://localhost:3023/clientes/${id}`,{
         method: 'DELETE'
