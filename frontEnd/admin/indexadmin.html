@@ -4,22 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-     <link rel="stylesheet" href="../style.css">
+    <main class="admin-center">
         <h1>Cadastro de Clientes</h1>
 
-    <label>Nome:</label>
-    <input type="text" id="nome" placeholder="Digite o nome do Cliente">
+        <div class="form-row">
+            <label>Nome para cadastrar:</label>
+            <input type="text" id="nome" placeholder="Digite o nome do Cliente">
+        </div>
 
-    <br>
+        <div class="form-row">
+            <button class="button button-secondary" onclick="listarclientes()">Listar Clientes</button>
+            <button class="button button-primary" onclick="cadastrarCliente()">Cadastrar Cliente</button>
+        </div>
 
-    <button onclick="listarclientes()">Listar Clientes</button>
-    <button onclick="cadastrarCliente()">Cadastrar Clientes</button>
+        <hr>
 
-    <hr>
+        <div class="form-row">
+            <label>Nome para buscar:</label>
+            <input type="text" id="searchNome" placeholder="Digite o nome para buscar">
+            <button class="button button-primary" onclick="buscarCliente()">Buscar Cliente</button>
+        </div>
 
-    <ul id="lista"></ul>
+        <hr>
+
+        <ul id="lista"></ul>
+    </main>
 
     <script src="script.js"></script>
 </body>

@@ -343,3 +343,89 @@ img {
         flex-direction: column;
     }
 }
+
+/* Centraliza o conteúdo da página de administração */
+.admin-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.admin-center h1 {
+    text-align: center;
+    margin: 0 0 0.5rem 0;
+}
+
+.admin-center label {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+}
+
+.admin-center input {
+    max-width: 420px;
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #dce5db;
+    background: #fff;
+}
+
+.admin-center > div {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    width: 100%;
+}
+
+.admin-center button {
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.admin-center ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 760px;
+}
+
+.admin-center .form-row {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.admin-center hr {
+    width: 100%;
+    max-width: 760px;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+    margin: 0.75rem 0;
+}
+
+.admin-center .button {
+    min-width: 140px;
+}
+
+@media (max-width: 420px) {
+    .admin-center .form-row {
+        gap: 0.5rem;
+        padding: 0 0.25rem;
+    }
+
+    .admin-center .button {
+        width: 100%;
+        min-width: 0;
+    }
+}

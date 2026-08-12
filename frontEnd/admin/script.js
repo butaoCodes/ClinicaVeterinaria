@@ -5,10 +5,10 @@ async function listarclientes() {
     const lista = document.getElementById('lista');
     lista.innerHTML =''
 
-    clientes.forEach((cliente, index) =>{
+    clientes.forEach((cliente) =>{
         lista.innerHTML += `
         <li>
-            ${index + 1} - ${cliente.nome}
+            ${cliente.id} - ${cliente.nome}
             <button onclick="editarCliente(${cliente.id}, '${cliente.nome}')">Editar</button>
             <button onclick="excluirCliente(${cliente.id})">Excluir</button>
         </li>
@@ -36,6 +36,40 @@ async function cadastrarCliente(){
     document.getElementById('nome').value='';
     listarclientes();
 
+}
+
+async function buscarCliente(){
+    const nome = document.getElementById('searchNome').value;
+
+    if(nome.trim() === ''){
+        alert('Digite o nome do cliente para buscar');
+        return;
+    }
+
+    const resposta = await fetch(`http://localhost:3023/clientes/buscar?nome=${encodeURIComponent(nome)}`);
+    const lista = document.getElementById('lista');
+    lista.innerHTML = '';
+
+    if (!resposta.ok) {
+        const erro = await resposta.json().catch(() => ({ erro: 'Erro na busca' }));
+        lista.innerHTML = `<li>${erro.erro || 'Erro na busca'}</li>`;
+        return;
+    }
+
+    const clientes = await resposta.json();
+
+    if (!Array.isArray(clientes) || clientes.length === 0) {
+        lista.innerHTML = '<li>Nenhum cliente encontrado</li>';
+        return;
+    }
+
+    clientes.forEach((cliente) =>{
+        lista.innerHTML += `
+        <li>
+            ${cliente.id} - ${cliente.nome}
+        </li>
+        `
+    })
 }
 
 async function editarCliente(id , nomeAtual) {
