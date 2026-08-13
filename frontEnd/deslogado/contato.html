@@ -71,66 +71,6 @@
                 <p>Rua dos Pets, 123 • Centro • Sua Cidade</p>
             </div>
         </section>
-
-        <!-- Seção com formulário de contato rápido -->
-        <section class="contact-form-section">
-            <!-- Título do formulário -->
-            <h3>Mensagem rápida</h3>
-            <!-- Formulário -->
-            <form class="contact-form">
-                <!-- Label do campo de nome -->
-                <label for="name">Nome</label>
-                <input id="name" type="text" placeholder="Seu nome" />
-
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="seu@email.com" />
-
-                <label for="message">Mensagem</label>
-                <textarea id="message" placeholder="Conte como podemos ajudar"></textarea>
-
-                <button class="button button-primary" type="submit">Enviar mensagem</button>
-            </form>
-            <!-- Script para processar o envio da mensagem -->
-            <script>
-                // Obtém o formulário de contato
-                const formContato = document.querySelector('.contact-form');
-                // Adiciona listener para o evento submit
-                formContato.addEventListener('submit', async function(event) {
-                    // Previne o envio padrão do formulário
-                    event.preventDefault();
-                    
-                    // Obtém os valores dos campos
-                    const nome = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const mensagem = document.getElementById('message').value;
-                    
-                    // Valida se todos os campos foram preenchidos
-                    if (!nome || !email || !mensagem) {
-                        alert('Preencha todos os campos');
-                        return;
-                    }
-                    
-                    // Faz requisição POST para enviar a mensagem ao servidor
-                    const resposta = await fetch('http://localhost:3023/mensagens', {
-                        method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({nome, email, mensagem})
-                    });
-                    
-                    // Converte resposta para JSON
-                    const dados = await resposta.json();
-                    
-                    // Exibe mensagem de sucesso ou erro
-                    if (resposta.ok) {
-                        alert(dados.mensagem);
-                        // Limpa o formulário
-                        formContato.reset();
-                    } else {
-                        alert('Erro: ' + dados.erro);
-                    }
-                });
-            </script>
-        </section>
     </main>
     <footer class="site-footer">
         <p>Hardstyle Veterinária • Atendimento cuidadoso para pets felizes.</p>
