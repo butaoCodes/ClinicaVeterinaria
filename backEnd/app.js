@@ -157,6 +157,68 @@ server.delete('/clientes/:id', (req, res) => {
 
 
 // ========================================
+// ROTA POST - CADASTRAR NOVA MENSAGEM
+// ========================================
+// Esta rota insere uma nova mensagem de contato no banco de dados
+server.post('/mensagens', (req, res) => {
+    // Obtém os dados da mensagem do corpo da requisição
+    const { nome, email, mensagem } = req.body;
+
+    // Valida se todos os campos foram fornecidos
+    if (!nome || !email || !mensagem) {
+        return res.status(400).json({ erro: 'Nome, email e mensagem são obrigatórios' });
+    }
+
+    // SQL para inserir uma nova mensagem na tabela mensagens
+    const sql = 'INSERT INTO mensagens (nome, email, mensagem) VALUES (?, ?, ?)';
+    connection.query(sql, [nome, email, mensagem], (erro, resultado) => {
+        if (erro) {
+            return res.status(500).json({ error: erro.message });
+        }
+        // Retorna mensagem de sucesso com ID da mensagem criada
+        return res.json({ mensagem: 'Mensagem enviada com sucesso!', id: resultado.insertId });
+    });
+});
+
+// ========================================
+// ROTA GET - LISTAR TODAS AS MENSAGENS
+// ========================================
+// Esta rota retorna uma lista de todas as mensagens recebidas
+server.get('/mensagens', (req, res) => {
+    // SQL para selecionar todas as mensagens ordenadas por data (mais recentes primeiro)
+    const sql = 'SELECT * FROM mensagens ORDER BY data_criacao DESC';
+
+    // Executa a query no banco de dados
+    connection.query(sql, (erro, resultados) => {
+        // Se houver erro na execução, retorna status 500
+        if (erro) {
+            return res.status(500).json({ erro: erro.message });
+        }
+        // Retorna as mensagens em formato JSON
+        return res.json(resultados);
+    });
+});
+
+// ========================================
+// ROTA DELETE - REMOVER MENSAGEM
+// ========================================
+// Esta rota deleta uma mensagem do banco de dados
+server.delete('/mensagens/:id', (req, res) => {
+    // Obtém o ID da mensagem da URL
+    const id = req.params.id;
+
+    // SQL para deletar a mensagem onde o ID corresponde
+    const sql = 'DELETE FROM mensagens WHERE id = ?';
+    connection.query(sql, [id], (erro) => {
+        if (erro) {
+            return res.status(500).json({ error: erro.message });
+        }
+        // Retorna mensagem de sucesso
+        return res.json({ mensagem: 'Mensagem deletada com sucesso', id });
+    });
+});
+
+// ========================================
 // INICIAR O SERVIDOR
 // ========================================
 // Inicia o servidor na porta 3023 e exibe uma mensagem no console

@@ -175,17 +175,59 @@ async function editarCliente(id , nomeAtual) {
 }
 
 // ========================================
-// FUNÇÃO: EXCLUIR CLIENTE
+// FUNÇÃO: LISTAR TODAS AS MENSAGENS RECEBIDAS
 // ========================================
-// Remove um cliente do banco de dados
-async function excluirCliente(id){
-    // Exibe uma caixa de diálogo pedindo confirmação
-    if(!confirm('Deseja realmente excluir esse cliente?')) return;
+// Busca todas as mensagens no servidor e exibe em uma lista HTML
+async function listarMensagens() {
+    // Faz requisição GET ao servidor para obter todas as mensagens
+    const resposta = await fetch('http://localhost:3023/mensagens');
+    // Converte a resposta para formato JSON
+    const mensagens = await resposta.json();
 
-    // Faz requisição DELETE ao servidor para remover o cliente
-    await fetch(`http://localhost:3023/clientes/${id}`,{
-        method: 'DELETE'  // Método DELETE para remover recurso
+    // Obtém o elemento HTML onde as mensagens serão exibidas
+    const listaMensagens = document.getElementById('listaMensagens');
+    // Limpa o conteúdo anterior
+    listaMensagens.innerHTML = '';
+
+    // Se não houver mensagens, exibe mensagem vazia
+    if (mensagens.length === 0) {
+        listaMensagens.innerHTML = '<li>Nenhuma mensagem recebida</li>';
+        return;
+    }
+
+    // Percorre cada mensagem e cria um item de lista com informações
+    mensagens.forEach((msg) => {
+        // Formata a data para um formato legível
+        const data = new Date(msg.data_criacao).toLocaleString('pt-BR');
+        listaMensagens.innerHTML += `
+        <li class="mensagem-item">
+            <strong>De:</strong> ${msg.nome} (${msg.email})<br>
+            <strong>Mensagem:</strong> ${msg.mensagem}<br>
+            <small>Data: ${data}</small>
+            <button onclick="deletarMensagem(${msg.id})">Deletar</button>
+        </li>
+        `
     })
-    // Atualiza a lista após a exclusão
-    listarclientes();
+}
+
+// ========================================
+// FUNÇÃO: DELETAR MENSAGEM
+// ========================================
+// Remove uma mensagem do banco de dados
+async function deletarMensagem(id) {
+    // Pede confirmação antes de deletar
+    if (!confirm('Deseja realmente deletar essa mensagem?')) return;
+
+    // Faz requisição DELETE ao servidor
+    const resposta = await fetch(`http://localhost:3023/mensagens/${id}`, {
+        method: 'DELETE'
+    });
+
+    // Se deletado com sucesso, atualiza a lista
+    if (resposta.ok) {
+        alert('Mensagem deletada com sucesso!');
+        listarMensagens();
+    } else {
+        alert('Erro ao deletar mensagem');
+    }
 }

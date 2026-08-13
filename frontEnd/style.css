@@ -342,6 +342,37 @@ img {
     font-size: 0.95rem;
 }
 
+/* ========================================
+   ESTILOS PARA ITEM DE MENSAGEM NO ADMIN
+   ======================================== */
+/* Estilo do item de mensagem */
+.mensagem-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #d7e3d6;
+    border-radius: 8px;
+    background: #f7faf5;
+    list-style: none;
+}
+
+/* Estilo do botão dentro da mensagem */
+.mensagem-item button {
+    padding: 0.4rem 0.8rem;
+    margin-top: 0.8rem;
+    border-radius: 6px;
+    background: #d9534f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+/* Efeito hover do botão */
+.mensagem-item button:hover {
+    background: #c9302c;
+    transform: translateY(-1px);
+}
+
 @media (max-width: 860px) {
     .hero {
         grid-template-columns: 1fr;
