@@ -1,44 +1,70 @@
+<!-- ========================================
+     PÁGINA DE ADMINISTRAÇÃO - PAINEL DO ADMIN
+     ======================================== -->
+<!-- Esta página permite ao administrador gerenciar clientes da clínica -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Define o conjunto de caracteres da página -->
     <meta charset="UTF-8">
+    <!-- Define a viewport para responsividade em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página que aparece na aba do navegador -->
     <title>Document</title>
+    <!-- Link para o arquivo CSS de estilos -->
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <!-- Seção principal com formulário e lista de clientes -->
     <main class="admin-center">
+        <!-- Título da seção -->
         <h1>Cadastro de Clientes</h1>
 
+        <!-- Formulário para cadastrar novo cliente -->
         <div class="form-row">
             <label>Nome para cadastrar:</label>
+            <!-- Campo de entrada para o nome do cliente -->
             <input type="text" id="nome" placeholder="Digite o nome do Cliente">
         </div>
 
+        <!-- Botões para listar e cadastrar clientes -->
         <div class="form-row">
+            <!-- Botão que lista todos os clientes -->
             <button class="button button-secondary" onclick="listarclientes()">Listar Clientes</button>
+            <!-- Botão que cadastra um novo cliente -->
             <button class="button button-primary" onclick="cadastrarCliente()">Cadastrar Cliente</button>
         </div>
 
+        <!-- Separador visual -->
         <hr>
 
+        <!-- Formulário para buscar clientes por nome -->
         <div class="form-row">
             <label>Nome para buscar:</label>
+            <!-- Campo de entrada para buscar por nome -->
             <input type="text" id="searchNome" placeholder="Digite o nome para buscar">
+            <!-- Botão para executar a busca -->
             <button class="button button-primary" onclick="buscarCliente()">Buscar Cliente</button>
         </div>
 
+        <!-- Formulário para buscar clientes por ID -->
         <div class="form-row">
             <label>ID para buscar:</label>
+            <!-- Campo de entrada para buscar por ID -->
             <input type="number" id="searchId" placeholder="Digite o ID do cliente">
+            <!-- Botão para buscar por ID -->
             <button class="button button-secondary" onclick="buscarClientePorId()">Buscar por ID</button>
         </div>
 
+        <!-- Separador visual -->
         <hr>
 
+        <!-- Lista dinâmica onde os clientes serão exibidos -->
         <ul id="lista"></ul>
     </main>
 
+    <!-- Link para o arquivo JavaScript com as funções -->
     <script src="script.js"></script>
 </body>
 </html>

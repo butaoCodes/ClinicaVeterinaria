@@ -1,51 +1,85 @@
+<!-- ========================================
+     PÁGINA INICIAL DO USUÁRIO COMUM
+     ======================================== -->
+<!-- Esta página é a home para usuários autenticados (não admin) -->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Define o conjunto de caracteres da página -->
     <meta charset="UTF-8">
+    <!-- Define a viewport para responsividade em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página que aparece na aba do navegador -->
     <title>Clínica Veterinária Hardstyle</title>
 </head>
 <body>
+    <!-- Link para o arquivo CSS de estilos -->
     <link rel="stylesheet" href="../style.css">
+    
+    <!-- Cabeçalho da página -->
     <header class="site-header">
+        <!-- Logo e nome da clínica -->
         <div class="brand">
+            <!-- Ícone de patas -->
             <span class="brand-mark">🐾</span>
             <div>
+                <!-- Nome da clínica -->
                 <h1>Hardstyle Veterinária</h1>
+                <!-- Tagline da clínica -->
                 <p>Cuidado amoroso para pets de todos os tamanhos</p>
             </div>
         </div>
+        <!-- Navegação principal (versão do usuário) -->
         <nav class="main-nav">
+            <!-- Link para a página inicial do usuário -->
             <a href="indexuser.html">Home</a>
+            <!-- Link para página de serviços do usuário -->
             <a href="servicouser.html">Serviços</a>
+            <!-- Link para página de contato do usuário -->
             <a href="contatouser.html">Contato</a>
         </nav>
     </header>
 
+    <!-- Conteúdo principal -->
     <main>
+        <!-- Seção herói com apresentação -->
         <section class="hero">
+            <!-- Texto e chamada para ação -->
             <div class="hero-copy">
+                <!-- Texto pequeno acima do título principal -->
                 <p class="eyebrow">Clínica de confiança</p>
+                <!-- Título principal -->
                 <h2>Cuidando do seu pet com carinho, saúde e alegria.</h2>
+                <!-- Descrição da clínica -->
                 <p>Somos uma clínica veterinária completa com atendimento humanizado, vacinas, consultas e banho e tosa para o seu melhor amigo.</p>
+                <!-- Botões de chamada para ação -->
                 <div class="hero-actions">
+                    <!-- Botão para ir aos serviços do usuário -->
                     <a class="button button-primary" href="servicouser.html">Conheça nossos serviços</a>
+                    <!-- Botão para entrar em contato via página do usuário -->
                     <a class="button button-secondary" href="contatouser.html">Fale conosco</a>
                 </div>
             </div>
+            <!-- Seção de imagem do hero -->
             <div class="hero-image">
+                <!-- Cartão com mensagem e emojis de pets -->
                 <div class="pet-card">
                     <p>Seu pet merece o melhor cuidado.</p>
+                    <!-- Ícones de cão e gato -->
                     <span>🐶🐱</span>
                 </div>
             </div>
         </section>
 
+        <!-- Seção de destaques dos serviços -->
         <section class="features">
+            <!-- Card de consultas veterinárias -->
             <article class="feature-card">
                 <h3>Consultas veterinárias</h3>
                 <p>Exames completos, orientações de saúde e acompanhamento contínuo para cães e gatos.</p>
             </article>
+            <!-- Card de vacinação e prevenção -->
             <article class="feature-card">
                 <h3>Vacinação e prevenção</h3>
                 <p>Plano de vacina personalizado e cuidados preventivos para manter seu pet protegido.</p>

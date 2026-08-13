@@ -1,31 +1,57 @@
+<!-- ========================================
+     PÁGINA DE LOGIN - AUTENTICAÇÃO DE USUÁRIOS
+     ======================================== -->
+<!-- Esta página permite que usuários façam login na aplicação -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Define o conjunto de caracteres da página -->
     <meta charset="UTF-8">
+    <!-- Define a viewport para responsividade em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página que aparece na aba do navegador -->
     <title>Document</title>
 </head>
 <body>
+    <!-- Link para o arquivo CSS de estilos -->
     <link rel="stylesheet" href="../style.css">
+    
+    <!-- Cabeçalho da página com logo e navegação -->
     <header class="site-header">
+        <!-- Logo e nome da clínica -->
         <div class="brand">
+            <!-- Ícone de patas -->
             <span class="brand-mark">🐾</span>
             <div>
+                <!-- Nome da clínica -->
                 <h1>Hardstyle Veterinária</h1>
+                <!-- Tagline da clínica -->
                 <p>Cuidado amoroso para pets de todos os tamanhos</p>
             </div>
         </div>
+        <!-- Navegação principal -->
         <nav class="main-nav">
+            <!-- Link para a página inicial -->
             <a href="index.html">Home</a>
+            <!-- Link para página de serviços -->
             <a href="servico.html">Serviços</a>
+            <!-- Link para página de contato -->
             <a href="contato.html">Contato</a>
         </nav>
     </header>
+    
+    <!-- Formulário de login -->
     <form id="loginForm">
-    <input type="email" id="email" placeholder="E-mail" required>
-    <input type="password" id="password" placeholder="Senha" required>
-    <button type="submit">Entrar</button>
-</form>
-<script src="script.js"></script>
+        <!-- Campo de entrada para email -->
+        <input type="email" id="email" placeholder="E-mail" required>
+        <!-- Campo de entrada para senha -->
+        <input type="password" id="password" placeholder="Senha" required>
+        <!-- Botão para enviar o formulário -->
+        <button type="submit">Entrar</button>
+    </form>
+    
+    <!-- Link para o arquivo JavaScript que processa o login -->
+    <script src="script.js"></script>
 </body>
 </html>

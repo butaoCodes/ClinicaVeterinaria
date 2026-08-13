@@ -1,52 +1,84 @@
+<!-- ========================================
+     PÁGINA DE CONTATO
+     ======================================== -->
+<!-- Esta página fornece informações de contato e um formulário para mensagens -->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Define o conjunto de caracteres da página -->
     <meta charset="UTF-8">
+    <!-- Define a viewport para responsividade em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página que aparece na aba do navegador -->
     <title>Contato | Hardstyle Veterinária</title>
 </head>
 <body>
+    <!-- Link para o arquivo CSS de estilos -->
     <link rel="stylesheet" href="../style.css">
+    
+    <!-- Cabeçalho da página -->
     <header class="site-header">
+        <!-- Logo e nome da clínica -->
         <div class="brand">
+            <!-- Ícone de patas -->
             <span class="brand-mark">🐾</span>
             <div>
+                <!-- Nome da clínica -->
                 <h1>Hardstyle Veterinária</h1>
+                <!-- Tagline da clínica -->
                 <p>Fale com nossa equipe de cuidado animal.</p>
             </div>
         </div>
+        <!-- Navegação principal -->
         <nav class="main-nav">
+            <!-- Link para home -->
             <a href="index.html">Home</a>
+            <!-- Link para serviços -->
             <a href="servico.html">Serviços</a>
+            <!-- Link para contato (página atual) -->
             <a href="contato.html">Contato</a>
+            <!-- Botão de login -->
             <a class="button button-primary" href="login.html">Login</a>
         </nav>
     </header>
 
+    <!-- Conteúdo principal -->
     <main class="page-content">
+        <!-- Seção de introdução -->
         <section class="page-hero">
+            <!-- Título da página -->
             <h2>Vamos cuidar do seu pet juntos</h2>
+            <!-- Descrição -->
             <p>Entre em contato para tirar dúvidas ou agendar uma consulta.</p>
         </section>
 
+        <!-- Seção com informações de contato -->
         <section class="contact-grid">
+            <!-- Card de telefone -->
             <div class="contact-card">
                 <h3>Telefone</h3>
                 <p>(11) 99999-9999</p>
             </div>
+            <!-- Card de email -->
             <div class="contact-card">
                 <h3>Email</h3>
                 <p>contato@hardstylevet.com.br</p>
             </div>
+            <!-- Card de endereço -->
             <div class="contact-card">
                 <h3>Endereço</h3>
                 <p>Rua dos Pets, 123 • Centro • Sua Cidade</p>
             </div>
         </section>
 
+        <!-- Seção com formulário de contato rápido -->
         <section class="contact-form-section">
+            <!-- Título do formulário -->
             <h3>Mensagem rápida</h3>
+            <!-- Formulário -->
             <form class="contact-form">
+                <!-- Label do campo de nome -->
                 <label for="name">Nome</label>
                 <input id="name" type="text" placeholder="Seu nome" />
 
@@ -60,7 +92,6 @@
             </form>
         </section>
     </main>
-
     <footer class="site-footer">
         <p>Hardstyle Veterinária • Atendimento cuidadoso para pets felizes.</p>
     </footer>

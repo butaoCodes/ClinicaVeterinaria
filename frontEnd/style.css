@@ -1,103 +1,122 @@
-/* Clínica veterinária Hardstyle */
+/* ========================================
+   ESTILOS GLOBAIS - CLÍNICA VETERINÁRIA HARDSTYLE
+   ======================================== */
+/* Variáveis CSS e estilos padrão para todo o projeto */
+
+/* Define as variáveis CSS globais do projeto */
 :root {
-    color-scheme: light;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #1f2a24;
-    background: #eff6f1;
+    color-scheme: light;  /* Define o esquema de cores como claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Define a fonte padrão */
+    color: #1f2a24;  /* Cor de texto padrão (verde escuro) */
+    background: #eff6f1;  /* Cor de fundo padrão (verde bem claro) */
 }
 
 * {
-    box-sizing: border-box;
+    box-sizing: border-box;  /* Faz com que o padding e border sejam incluídos no tamanho total */
 }
 
+/* Estilos do elemento HTML e Body */
 html,
 body {
-    margin: 0;
-    padding: 0;
+    margin: 0;  /* Remove margens padrão */
+    padding: 0;  /* Remove espaçamento padrão */
 }
 
+/* Estilos do body (corpo da página) */
 body {
+    /* Gradiente radial no topo esquerdo com gradiente linear para fundo */
     background: radial-gradient(circle at top left, #dff2e8 0%, transparent 45%),
         linear-gradient(180deg, #f7faf5 0%, #e8f1ea 100%);
-    min-height: 100vh;
+    min-height: 100vh;  /* Garante que o body tenha no mínimo a altura da tela */
 }
 
+/* Estilos para links dentro do body */
 body a {
-    color: inherit;
-    text-decoration: none;
+    color: inherit;  /* Herda a cor do elemento pai */
+    text-decoration: none;  /* Remove sublinhado dos links */
 }
 
 .site-header {
+    /* Layout flexbox para alinhar logo e navegação lado a lado */
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.5rem 2rem;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 10px 24px rgba(31, 42, 36, 0.08);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    align-items: center;  /* Alinha itens verticalmente no centro */
+    justify-content: space-between;  /* Espaça itens para extremos */
+    gap: 1rem;  /* Espaço entre os elementos */
+    padding: 1.5rem 2rem;  /* Espaçamento interno */
+    background: rgba(255, 255, 255, 0.9);  /* Fundo branco semi-transparente */
+    box-shadow: 0 10px 24px rgba(31, 42, 36, 0.08);  /* Sombra sutil */
+    position: sticky;  /* Fica fixo ao fazer scroll */
+    top: 0;  /* Fixo no topo */
+    z-index: 10;  /* Fica acima de outros elementos */
 }
 
 .brand {
+    /* Layout flexbox para alinhar logo e texto lado a lado */
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    align-items: center;  /* Centraliza verticalmente */
+    gap: 1rem;  /* Espaço entre logo e texto */
 }
 
+/* Estilo do ícone/marca da clínica */
 .brand-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    background: #a3d9b1;
-    font-size: 1.5rem;
+    display: inline-flex;  /* Display flex inline */
+    align-items: center;  /* Centraliza o conteúdo verticalmente */
+    justify-content: center;  /* Centraliza o conteúdo horizontalmente */
+    width: 3rem;  /* Largura de 3rem */
+    height: 3rem;  /* Altura de 3rem (forma quadrada) */
+    border-radius: 50%;  /* Torna em círculo */
+    background: #a3d9b1;  /* Cor de fundo verde claro */
+    font-size: 1.5rem;  /* Tamanho do emoji */
 }
 
+/* Estilo do título H1 dentro da marca */
 .brand h1 {
-    margin: 0;
-    font-size: 1.35rem;
+    margin: 0;  /* Remove margens padrão */
+    font-size: 1.35rem;  /* Tamanho do texto */
 }
 
+/* Estilo do parágrafo de tagline dentro da marca */
 .brand p {
-    margin: 0.25rem 0 0;
-    color: #526554;
+    margin: 0.25rem 0 0;  /* Pequena margem no topo */
+    color: #526554;  /* Cor de texto cinzenta-esverdeada */
 }
 
+/* Estilo da navegação principal */
 .main-nav {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+    display: flex;  /* Layout flexbox */
+    align-items: center;  /* Centraliza itens verticalmente */
+    gap: 1rem;  /* Espaço entre os links */
+    flex-wrap: wrap;  /* Quebra para próxima linha se necessário */
 }
 
+/* Estilo dos links dentro da navegação */
 .main-nav a {
-    padding: 0.75rem 1.1rem;
-    border-radius: 999px;
-    transition: background 0.25s ease, transform 0.25s ease;
+    padding: 0.75rem 1.1rem;  /* Espaçamento interno */
+    border-radius: 999px;  /* Bordas arredondadas (estilo "pill") */
+    transition: background 0.25s ease, transform 0.25s ease;  /* Animação suave */
 }
 
+/* Efeito ao passar o mouse nos links */
 .main-nav a:hover {
-    background: #eaf3ea;
-    transform: translateY(-1px);
+    background: #eaf3ea;  /* Muda cor de fundo */
+    transform: translateY(-1px);  /* Move um pouco para cima */
 }
 
+/* Estilo da seção hero e conteúdo da página */
 .hero,
 .page-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 2rem 3rem;
+    max-width: 1100px;  /* Largura máxima */
+    margin: 0 auto;  /* Centraliza horizontalmente */
+    padding: 2rem 2rem 3rem;  /* Espaçamento interno */
 }
 
+/* Estilo específico da seção hero */
 .hero {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 2rem;
-    align-items: center;
-    padding-top: 3rem;
+    display: grid;  /* Layout em grid */
+    grid-template-columns: 1.2fr 0.8fr;  /* Duas colunas desiguais */
+    gap: 2rem;  /* Espaço entre colunas */
+    align-items: center;  /* Alinha verticalmente no centro */
+    padding-top: 3rem;  /* Espaçamento no topo */
 }
 
 .hero-copy {
@@ -133,32 +152,36 @@ body a {
     gap: 1rem;
 }
 
+/* Estilo geral dos botões */
 .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.95rem 1.6rem;
-    border: none;
-    border-radius: 999px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-flex;  /* Flex inline para alinhamento */
+    align-items: center;  /* Centraliza verticalmente */
+    justify-content: center;  /* Centraliza horizontalmente */
+    padding: 0.95rem 1.6rem;  /* Espaçamento interno */
+    border: none;  /* Remove borda padrão */
+    border-radius: 999px;  /* Bordas arredondadas */
+    font-weight: 600;  /* Texto em negrito */
+    cursor: pointer;  /* Muda cursor para mão */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;  /* Animações suaves */
 }
 
+/* Efeito ao passar o mouse nos botões */
 .button:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px);  /* Move para cima */
 }
 
+/* Estilo do botão primário (fundo verde) */
 .button-primary {
-    background: #4f8f72;
-    color: #ffffff;
-    box-shadow: 0 14px 28px rgba(79, 143, 114, 0.18);
+    background: #4f8f72;  /* Fundo verde */
+    color: #ffffff;  /* Texto branco */
+    box-shadow: 0 14px 28px rgba(79, 143, 114, 0.18);  /* Sombra */
 }
 
+/* Estilo do botão secundário (fundo branco com borda) */
 .button-secondary {
-    background: #ffffff;
-    color: #426149;
-    border: 1px solid #d7e3d6;
+    background: #ffffff;  /* Fundo branco */
+    color: #426149;  /* Texto verde escuro */
+    border: 1px solid #d7e3d6;  /* Borda sutil */
 }
 
 .hero-image {
@@ -344,55 +367,65 @@ img {
     }
 }
 
+/* ========================================
+   ESTILOS DO PAINEL DE ADMINISTRAÇÃO
+   ======================================== */
+
 /* Centraliza o conteúdo da página de administração */
 .admin-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
+    display: flex;  /* Layout flexbox */
+    flex-direction: column;  /* Alinha items em coluna (verticalmente) */
+    align-items: center;  /* Centraliza horizontalmente */
+    gap: 12px;  /* Espaço entre elementos */
+    padding: 2rem;  /* Espaçamento interno */
+    max-width: 900px;  /* Largura máxima */
+    margin: 0 auto;  /* Centraliza na página */
 }
 
+/* Estilo do título H1 no admin */
 .admin-center h1 {
-    text-align: center;
-    margin: 0 0 0.5rem 0;
+    text-align: center;  /* Texto centralizado */
+    margin: 0 0 0.5rem 0;  /* Margens */
 }
 
+/* Estilo dos labels no admin */
 .admin-center label {
-    display: block;
-    text-align: center;
-    font-weight: 600;
+    display: block;  /* Display em bloco */
+    text-align: center;  /* Texto centralizado */
+    font-weight: 600;  /* Texto em negrito */
 }
 
+/* Estilo dos campos de entrada no admin */
 .admin-center input {
-    max-width: 420px;
-    width: 100%;
-    padding: 0.6rem 0.75rem;
-    border-radius: 8px;
-    border: 1px solid #dce5db;
-    background: #fff;
+    max-width: 420px;  /* Largura máxima */
+    width: 100%;  /* Largura total disponível */
+    padding: 0.6rem 0.75rem;  /* Espaçamento interno */
+    border-radius: 8px;  /* Bordas levemente arredondadas */
+    border: 1px solid #dce5db;  /* Borda sutil */
+    background: #fff;  /* Fundo branco */
 }
 
+/* Contêiner dos botões no admin */
 .admin-center > div {
-    display: flex;
-    gap: 0.6rem;
-    justify-content: center;
-    width: 100%;
+    display: flex;  /* Layout flexbox */
+    gap: 0.6rem;  /* Espaço entre botões */
+    justify-content: center;  /* Centraliza horizontalmente */
+    width: 100%;  /* Largura total */
 }
 
+/* Estilo dos botões no admin */
 .admin-center button {
-    padding: 0.55rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
+    padding: 0.55rem 1rem;  /* Espaçamento interno */
+    border-radius: 8px;  /* Bordas arredondadas */
+    cursor: pointer;  /* Muda cursor para mão */
 }
 
+/* Estilo da lista de clientes no admin */
 .admin-center ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-    max-width: 760px;
+    list-style: none;  /* Remove estilo padrão da lista */
+    padding: 0;  /* Remove espaçamento padrão */
+    width: 100%;  /* Largura total */
+    max-width: 760px;  /* Largura máxima */
 }
 
 .admin-center .form-row {
